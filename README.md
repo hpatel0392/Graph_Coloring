@@ -1,4 +1,4 @@
-#Graph Coloring with CLIPS and Graphviz
+# Graph Coloring with CLIPS and Graphviz
 
 Contents:
 -----------
