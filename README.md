@@ -14,12 +14,15 @@ Contents:
 4) clipsGen.* - Reads in graph data supplied in the proper format and creates a .clips
                 file for the main driver to use.
 5) graphGen.c - creates a random graph of N nodes and outputs into file, where N >= 2. 
+
 		**Note: see report, but graphs with N > 20 are strongly discouraged**
+		
 6) Sample_Images - Contains the results of several sample graph tests that were run
 7) Sample_Graphs - Contains the .txt files for the graphs that correspond to the images
                    in "Sample_Images"
 
 8) Clips_Core - contains the clips source and static library required for this project
+
 	***NOTE: I am not distributing this source with this project, please download it from 
 	https://sourceforge.net/projects/clipsrules/files/CLIPS/6.30/
 	
