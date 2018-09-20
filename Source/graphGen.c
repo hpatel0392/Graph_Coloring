@@ -1,3 +1,8 @@
+/*
+* Harsh Patel
+* Fall 2017
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -8,7 +13,7 @@
 #define ITERATIONS 10000
 
 int main(int argc, char* argv[]){
-  
+
    if(argc != 3){
       printf("Error: usage ./graphGen <numNodes> <output_file>\n");
       exit(-1);
@@ -19,7 +24,7 @@ int main(int argc, char* argv[]){
       printf("Error: can't open file %s\n", argv[2]);
       exit(-1);
    }
-   
+
    int numNodes = atoi(argv[1]);
    int minEdges = (numNodes > 10)?2:1;
    if(numNodes <= 1){
@@ -33,7 +38,7 @@ int main(int argc, char* argv[]){
    int adj[numNodes][numNodes];
 
    srand(time(NULL));
-   
+
    int i, j, numAdjs = 0;
    int temp, randNode = rand() % (numNodes*numNodes);
    int * curr1 = NULL;
@@ -54,12 +59,12 @@ int main(int argc, char* argv[]){
 
    // randomly add adjacencies
    for(i = 0; i < ITERATIONS; i++){
-      
+
       temp = rand() % (numNodes*numNodes);
       while(temp == randNode){
          randNode = rand() %(numNodes*numNodes);
       }
-  
+
       curr1 = &adj[randNode/numNodes][randNode%numNodes];
       curr2 = &adj[randNode%numNodes][randNode/numNodes];
       if(*curr1 == FALSE){
@@ -71,8 +76,8 @@ int main(int argc, char* argv[]){
          *curr2 = FALSE;
          numAdjs--;
       }
-   }    
-   
+   }
+
 
    // Make sure all nodes have at least "minEdges"
    int rowCount;
@@ -87,7 +92,7 @@ int main(int argc, char* argv[]){
           do{
              randNode = rand() % numNodes;
           }while(randNode == i);
-          
+
           if(adj[i][randNode] == FALSE){
              adj[i][randNode] = TRUE;
              adj[randNode][i] = TRUE;
@@ -107,6 +112,5 @@ int main(int argc, char* argv[]){
    }
    fclose(out);
 
-   return 0; 
+   return 0;
 }
-

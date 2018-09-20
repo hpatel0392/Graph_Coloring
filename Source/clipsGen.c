@@ -1,15 +1,20 @@
+/*
+* Harsh Patel
+* Fall 2017
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "clipsGen.h"
 
 FILE* out;
-                                                   
+
 int makeClips(int argc, char* argv[]) {
    if(argc != 3){
       printf("Error: usage ./graphColor <input_file_name> <number_colors>\n");
       return -1;
    }
-   
+
    int numColors = atoi(argv[2]);
    if(numColors < 2 || numColors > 4){
        printf("Error: num_colors must be between 2 and 4\n");
@@ -30,9 +35,9 @@ int makeClips(int argc, char* argv[]) {
       printf("\"<num Vertices> <num Adjacencies>\"");
       return -1;
    }
-   
+
    char** adjs = (char**)malloc(sizeof(char*)*numAdjs);
-   
+
    int i;
    for(i = 0; i < numAdjs; i++){
       adjs[i] = (char*)malloc(8);
@@ -55,7 +60,7 @@ int makeClips(int argc, char* argv[]) {
 
 
 void writeDefTemps(int numVerts){
-   
+
    fputs("\n(deftemplate adj-to (slot node1) (slot node2))\n", out);
    fputs("\n(deftemplate coloring\n", out);
    int i;
@@ -67,13 +72,13 @@ void writeDefTemps(int numVerts){
 }
 
 void writeRules(int numVerts, int numAdjs, char** adjs){
- 
-  
+
+
    fputs("\n(defrule rulesym\n", out);
    fputs("   (adj-to (node1 ?X) (node2 ?Y))\n", out);
    fputs(" =>\n", out);
    fputs("   (assert (adj-to (node1 ?Y) (node2 ?X)))\n)\n", out);
-   
+
    fputs("\n(defrule rulecol\n", out);
    int i, n1, n2;
    for( i = 0; i < numAdjs; i++){
@@ -89,15 +94,15 @@ void writeRules(int numVerts, int numAdjs, char** adjs){
    }
    fputs("         )\n", out);
    fputs("      )\n", out);
-   fputs(")\n", out); 
+   fputs(")\n", out);
 }
 
 
 void writeInitFacts(int numColors){
 
-   char* colors[] = {"red", "green", "blue", "yellow"};   
+   char* colors[] = {"red", "green", "blue", "yellow"};
    fputs("\n(deffacts startup \n", out);
-   
+
    int i, j;
    for(i = 0; i < numColors; i++){
       for(j = i+1; j < numColors; j++){
@@ -106,5 +111,3 @@ void writeInitFacts(int numColors){
    }
    fputs(")\n", out);
 }
-
-
