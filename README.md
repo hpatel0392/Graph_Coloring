@@ -29,8 +29,8 @@ Contents:
 
 9) harshp-report_takehome1.pdf - the accompanying report for this project
 
-** 
-   As report suggests graphviz is required to render the .dot files, 
+***As report suggests graphviz is required to render the .dot files,
+
    1) if not installed: sudo apt-get install graphviz
    2) this package is installed on ECE lab machines already
    3) alternatively, go to www.webgraphviz.com and copy the contents of the .dot file
