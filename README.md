@@ -23,15 +23,15 @@ Contents:
 
 8) Clips_Core - contains the clips source and static library required for this project
 
-	***NOTE: I am not distributing this source with this project, please download it from 
-	https://sourceforge.net/projects/clipsrules/files/CLIPS/6.30/
+	**NOTE: I am not distributing this source with this project, please download it from 
+	https://sourceforge.net/projects/clipsrules/files/CLIPS/6.30/**
 	
 
 9) harshp-report_takehome1.pdf - the accompanying report for this project
 
-***As report suggests graphviz is required to render the .dot files,
+	**As report suggests graphviz is required to render the .dot files**
 
-   1) if not installed: sudo apt-get install graphviz
-   2) this package is installed on ECE lab machines already
-   3) alternatively, go to www.webgraphviz.com and copy the contents of the .dot file
+If not installed:
+   1) sudo apt-get install graphviz
+   2) alternatively, go to www.webgraphviz.com and copy the contents of the .dot file
       into the text box and hit generate graph
